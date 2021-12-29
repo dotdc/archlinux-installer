@@ -1,0 +1,8 @@
+brave-bin
+kind
+notion-app
+slack-desktop
+tfk8s
+tflint-bin
+torguard
+visual-studio-code-bin
