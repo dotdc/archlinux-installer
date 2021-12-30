@@ -110,6 +110,12 @@ systemctl enable docker
 # Allow users to change default Gnome favorites apps
 echo -e "user-db:user" > /etc/dconf/profile
 
+# Install dotfiles for user
+mkdir -p /home/${username}/Documents/workspace/repos/
+git clone https://github.com/dotdc/dotfiles
+cd dotfiles
+make all
+
 # Reboot
 echo -e "[${B}INFO${W}] Post-install complete!"
 echo -e "[${B}INFO${W}] Type ${Y}CTRL+D${W} and ${Y}reboot${W} to reboot in Arch!"
