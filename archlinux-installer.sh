@@ -116,5 +116,7 @@ cp -v config-variables.sh /mnt/opt
 cp -v config-pacman-packages.txt /mnt/opt
 cp -v config-aur-packages.txt /mnt/opt
 
+echo -e "luks_partition=\"${luks_partition}\"" >> /mnt/opt/config-variables.sh
+
 echo -e "[${B}INFO${W}] Installation complete!"
 echo -e "[${B}INFO${W}] Please run ${Y}arch-chroot /mnt${W}, ${Y}cd /opt${W} and ${Y}./archlinux-postinstall.sh${W} to continue"

@@ -107,6 +107,9 @@ systemctl enable gdm
 systemctl enable NetworkManager
 systemctl enable docker
 
+# Allow users to change default Gnome favorites apps
+echo -e "user-db:user" > /etc/dconf/profile
+
 # Reboot
 echo -e "[${B}INFO${W}] Post-install complete!"
 echo -e "[${B}INFO${W}] Type ${Y}CTRL+D${W} and ${Y}reboot${W} to reboot in Arch!"
