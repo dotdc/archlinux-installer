@@ -112,9 +112,11 @@ echo -e "user-db:user" > /etc/dconf/profile
 
 # Install dotfiles for user
 mkdir -p /home/${username}/Documents/workspace/repos/
+cd /home/${username}/Documents/workspace/repos/
 git clone https://github.com/dotdc/dotfiles
 cd dotfiles
-make all
+su ${username} -c "make all"
+chown -R ${username}: /home/${username}
 
 # Reboot
 echo -e "[${B}INFO${W}] Post-install complete!"
