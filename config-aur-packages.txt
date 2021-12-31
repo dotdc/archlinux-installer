@@ -1,3 +1,4 @@
+aws-cli-v2-bin
 brave-bin
 kind
 notion-app

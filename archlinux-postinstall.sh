@@ -107,8 +107,18 @@ systemctl enable gdm
 systemctl enable NetworkManager
 systemctl enable docker
 
-# Allow users to change default Gnome favorites apps
-echo -e "user-db:user" > /etc/dconf/profile
+# Set Gnome default favorites apps
+mkdir -p /etc/dconf/profile
+mkdir -p /etc/dconf/db/local.d
+echo -e "user-db:user
+system-db:local" > /etc/dconf/profile/user
+echo -e "# Set Gnome default favorites apps
+# To find apps:
+# find / -iname "*desktop" -type f -not -path "/media*" 2> /dev/null
+[org/gnome/shell]
+favorite-apps = ${favorite_apps}
+" > /etc/dconf/db/local.d/00-favorite-apps
+dconf update
 
 # Install dotfiles for user
 mkdir -p /home/${username}/Documents/workspace/repos/

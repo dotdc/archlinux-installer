@@ -18,3 +18,5 @@ hostname="laptop"
 timezone="Europe/Paris"
 locale="en_US"
 username="david"
+favorite_apps="['urxvt.desktop', 'nautilus.desktop', 'brave-browser.desktop', 'firefox.desktop', 'vivaldi-stable.desktop', 'notion-app.desktop', 'slack.desktop', 'visual-studio-code.desktop', 'scummvm.desktop', 'torguard.desktop']"
+
