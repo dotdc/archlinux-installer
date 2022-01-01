@@ -114,7 +114,7 @@ echo -e "user-db:user
 system-db:local" > /etc/dconf/profile/user
 echo -e "# Set Gnome default favorites apps
 # To find apps:
-# find / -iname "*desktop" -type f -not -path "/media*" 2> /dev/null
+# find / -iname \"*desktop\" -type f -not -path \"/media*\" 2> /dev/null
 [org/gnome/shell]
 favorite-apps = ${favorite_apps}
 " > /etc/dconf/db/local.d/00-favorite-apps
