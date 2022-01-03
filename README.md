@@ -6,7 +6,7 @@ This is custom installer script for Arch Linux.
 
 ![screenshot](https://raw.githubusercontent.com/dotdc/media/main/archlinux-installer/archlinux-installer-screenshot.png "Archlinux-installer screenshot")
 
-It has been made for my personnal use, but could help you build your own.
+I made this installer for my personnal use, feel free to fork and build your own.
 
 This installer will:
 
@@ -29,8 +29,8 @@ This installer will:
 
 ## Configuration Files
 
-| File           | Purpose   |
-|------------------------------|-----------|
+| File                         | Purpose |
+|------------------------------|---------|
 | `config-variables.sh`        | Main configuration file (locale, timezone, user, hostname...) |
 | `config-pacman-packages.txt` | List of packages to install |
 | `config-pacman-packages.txt` | List of AUR packages to build & install|
@@ -48,3 +48,10 @@ cd archlinux-installer
 ```
 
 Then follow the steps!
+
+## Contributing
+
+Feel free to contribute to this project:
+
+- Create an `Issue` to make a feature request, report a bug or share an idea.
+- Create a `Pull Request` if you want to share code or anything useful to this project.
