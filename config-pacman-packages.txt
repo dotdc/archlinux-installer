@@ -1,5 +1,6 @@
 ansible
 bash-completion
+bind
 brasero
 btrfs-progs
 chromium
@@ -29,6 +30,7 @@ kubeadm
 kubectl
 kustomize
 libreoffice-fresh-fr
+mlocate
 networkmanager
 nfs-utils
 openssh
