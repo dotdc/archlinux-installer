@@ -33,8 +33,10 @@ libreoffice-fresh-fr
 mlocate
 networkmanager
 nfs-utils
+obs-studio
 openssh
 packer
+qt5-wayland
 rxvt-unicode
 scummvm
 shellcheck
