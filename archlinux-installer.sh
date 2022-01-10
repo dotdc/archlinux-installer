@@ -101,6 +101,9 @@ mkdir /mnt/boot
 mkfs.fat -F 32 ${efi_partition}
 mount "${efi_partition}" /mnt/boot
 
+# Mount swap
+swapon /dev/SYSTEM/swap
+
 # Install Arch
 echo -e "[${B}INFO${W}] Install Arch Linux"
 pacstrap /mnt --color auto base base-devel linux linux-firmware intel-ucode efibootmgr lvm2
