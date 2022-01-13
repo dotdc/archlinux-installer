@@ -1,5 +1,7 @@
+1password
 aws-cli-v2-bin
 brave-bin
+grpcurl-bin
 kind
 notion-app
 slack-desktop
