@@ -33,6 +33,7 @@ libreoffice-fresh-fr
 mlocate
 networkmanager
 nfs-utils
+nftables
 obs-studio
 openssh
 packer
