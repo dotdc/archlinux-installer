@@ -1,6 +1,7 @@
 1password
 aws-cli-v2-bin
 brave-bin
+chrome-gnome-shell
 grpcurl-bin
 kind
 notion-app

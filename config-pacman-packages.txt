@@ -42,7 +42,6 @@ rxvt-unicode
 scummvm
 shellcheck
 terraform
-terragrunt
 tmux
 tree
 unrar
