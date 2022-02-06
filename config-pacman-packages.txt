@@ -39,6 +39,7 @@ nftables
 obs-studio
 openssh
 packer
+python-pylint
 qt5-wayland
 rxvt-unicode
 scummvm
