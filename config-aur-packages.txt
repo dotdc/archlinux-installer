@@ -4,7 +4,9 @@ brave-bin
 chrome-gnome-shell
 grpcurl-bin
 kind
+kubent-bin
 notion-app
+pluto
 slack-desktop
 tfk8s
 tflint-bin
