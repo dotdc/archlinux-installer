@@ -10,5 +10,6 @@ pluto
 slack-desktop
 tfk8s
 tflint-bin
+tfsec
 torguard
 visual-studio-code-bin
