@@ -8,6 +8,7 @@ kubent-bin
 notion-app
 pluto
 slack-desktop
+terraform-docs-bin
 tfk8s
 tflint-bin
 tfsec
