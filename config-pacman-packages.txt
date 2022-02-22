@@ -40,6 +40,8 @@ nftables
 obs-studio
 openssh
 packer
+python-cookiecutter
+python-pre-commit
 python-pylint
 qt5-wayland
 rxvt-unicode
