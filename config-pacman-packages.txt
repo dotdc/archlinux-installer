@@ -24,7 +24,7 @@ go
 gparted
 helm
 htop
-inetutils 
+inetutils
 ipcalc
 iwd
 jq

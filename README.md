@@ -6,7 +6,7 @@ This is custom installer script for Arch Linux.
 
 ![screenshot](https://raw.githubusercontent.com/dotdc/media/main/archlinux-installer/archlinux-installer-screenshot.png "Archlinux-installer screenshot")
 
-I made this installer for my personnal use, feel free to fork and build your own.
+I made this installer for my personal use, feel free to fork and build your own.
 
 This installer will:
 
