@@ -4,6 +4,7 @@ bind
 brasero
 btrfs-progs
 chromium
+codespell
 discord
 dmidecode
 docker
