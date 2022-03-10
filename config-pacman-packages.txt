@@ -5,6 +5,8 @@ brasero
 btrfs-progs
 chromium
 codespell
+cups
+cups-pdf
 discord
 dmidecode
 docker

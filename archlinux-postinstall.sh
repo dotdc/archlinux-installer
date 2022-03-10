@@ -46,7 +46,7 @@ EndSection" > /etc/X11/xorg.conf.d/00-keyboard.conf
 # https://wiki.archlinux.org/title/Dm-crypt/Encrypting_an_entire_system#LVM_on_LUKS
 echo -e "[${B}INFO${W}] Generate mkinitcpio hooks"
 mkinitcpio_hooks="base udev autodetect keyboard keymap modconf block encrypt lvm2 filesystems keyboard fsck"
-sed -i "s|^HOOKS=(.*)|HOOKS=(${mkinitcpio_hooks})|" /etc/mkinitcpio.conf 
+sed -i "s|^HOOKS=(.*)|HOOKS=(${mkinitcpio_hooks})|" /etc/mkinitcpio.conf
 mkinitcpio -P
 
 # Create user
@@ -107,6 +107,7 @@ systemctl enable gdm
 systemctl enable NetworkManager
 systemctl enable nftables
 systemctl enable docker
+systemctl enable cups
 
 # Set Gnome default favorites apps
 mkdir -p /etc/dconf/profile
