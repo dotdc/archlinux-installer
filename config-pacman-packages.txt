@@ -43,6 +43,7 @@ nftables
 obs-studio
 openssh
 packer
+prometheus
 python-cookiecutter
 python-pre-commit
 python-pylint
