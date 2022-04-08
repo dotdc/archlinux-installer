@@ -6,7 +6,6 @@ grpcurl-bin
 kind
 kubent-bin
 notion-app
-pluto
 slack-desktop
 terraform-docs-bin
 tfk8s
