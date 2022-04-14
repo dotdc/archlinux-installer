@@ -1,4 +1,5 @@
 ansible
+argocd
 bash-completion
 bind
 brasero
