@@ -19,6 +19,10 @@ set -e
 # Post-install
 ################################################################################
 
+# Install the latest archlinux-keyring
+echo -e "[${B}INFO${W}] Install the latest ${Y}archlinux-keyring${W} package"
+pacman -Sy --color auto archlinux-keyring
+
 # Install all packages
 echo -e "[${B}INFO${W}] Install ${Y}pacman${W} packages"
 pacman -Sy --color auto $(tr '\n' ' ' < /opt/config-pacman-packages.txt)

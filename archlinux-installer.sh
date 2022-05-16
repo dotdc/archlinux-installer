@@ -62,8 +62,14 @@ parted "${system_disk}" mkpart "EFI" fat32 1MiB 301MiB
 parted "${system_disk}" set 1 esp on
 parted "${system_disk}" mkpart "LUKS-SYSTEM" ext4 301MiB 100%
 
-efi_partition="${system_disk}p1"
-luks_partition="${system_disk}p2"
+# Guess partition names
+if [[ "${system_disk}" =~ "/dev/sd" ]] ; then
+  efi_partition="${system_disk}1"
+  luks_partition="${system_disk}2"
+else
+  efi_partition="${system_disk}p1"
+  luks_partition="${system_disk}p2"
+fi
 
 # LUKS configuration
 echo -e "[${B}INFO${W}] Create luks partition on ${Y}${luks_partition}${W}"
