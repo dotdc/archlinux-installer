@@ -109,6 +109,7 @@ sudo -u ${username} yay -Sy --color auto $(tr '\n' ' ' < /opt/config-aur-package
 echo -e "[${B}INFO${W}] Enable systemctl services"
 systemctl enable gdm
 systemctl enable NetworkManager
+systemctl enable bluetooth
 systemctl enable nftables
 systemctl enable docker
 systemctl enable cups

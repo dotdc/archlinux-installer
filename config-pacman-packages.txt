@@ -2,6 +2,8 @@ ansible
 argocd
 bash-completion
 bind
+bluez
+bluez-utils
 brasero
 btrfs-progs
 chromium
