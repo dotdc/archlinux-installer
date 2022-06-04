@@ -25,7 +25,7 @@ pacman -Sy --color auto archlinux-keyring
 
 # Install all packages
 echo -e "[${B}INFO${W}] Install ${Y}pacman${W} packages"
-pacman -Sy --color auto $(tr '\n' ' ' < /opt/config-pacman-packages.txt)
+pacman -Sy --color auto - < /opt/config-pacman-packages.txt
 
 # Configuration
 echo -e "[${B}INFO${W}] Configure system localization"
@@ -103,7 +103,7 @@ sudo -u ${username} makepkg -si
 
 # Install AUR Packages
 echo -e "[${B}INFO${W}] Install ${Y}AUR${W} packages"
-sudo -u ${username} yay -Sy --color auto $(tr '\n' ' ' < /opt/config-aur-packages.txt)
+sudo -u ${username} yay -Sy --color auto - < /opt/config-aur-packages.txt
 
 # Start services
 echo -e "[${B}INFO${W}] Enable systemctl services"
