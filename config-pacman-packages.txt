@@ -46,6 +46,7 @@ networkmanager
 nfs-utils
 nftables
 obs-studio
+openbsd-netcat
 openssh
 packer
 prometheus
