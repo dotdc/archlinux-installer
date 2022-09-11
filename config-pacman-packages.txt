@@ -71,6 +71,7 @@ virtualbox-host-modules-arch
 vivaldi
 vivaldi-ffmpeg-codecs
 vlc
+webp-pixbuf-loader
 wget
 wireguard-tools
 wireless_tools
