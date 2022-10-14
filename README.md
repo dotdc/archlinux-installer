@@ -14,8 +14,8 @@ This installer will:
   - A partition for the `EFI` (mounted on `/boot`)
   - A `LUKS` encrypted partition for the system
 - Configure LVM on LUKS with 3 Logical Volumes (LVs):
-  - `/root`
-  - `/home`
+  - `root` (`/`)
+  - `home` (`/home`)
   - `swap`
 - Configure the system
 - Create a user/password
