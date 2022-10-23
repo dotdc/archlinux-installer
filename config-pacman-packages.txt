@@ -54,6 +54,8 @@ python-cookiecutter
 python-pre-commit
 python-pylint
 qt5-wayland
+rust
+rust-wasm
 rxvt-unicode
 scummvm
 shellcheck
