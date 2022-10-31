@@ -55,6 +55,7 @@ python-pre-commit
 python-pylint
 qt5-wayland
 rust
+rust-analyzer
 rust-wasm
 rxvt-unicode
 scummvm
@@ -73,6 +74,7 @@ virtualbox-host-modules-arch
 vivaldi
 vivaldi-ffmpeg-codecs
 vlc
+wasmtime
 webp-pixbuf-loader
 wget
 wireguard-tools
