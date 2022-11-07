@@ -1,4 +1,3 @@
-1password
 aws-cli-v2-bin
 brave-bin
 chrome-gnome-shell
@@ -6,10 +5,11 @@ grpcurl-bin
 kind
 kubent-bin
 notion-app
+protonvpn-cli
+protonvpn-gui
 slack-desktop
 terraform-docs-bin
 tfk8s
 tflint-bin
 tfsec
-torguard
 visual-studio-code-bin
