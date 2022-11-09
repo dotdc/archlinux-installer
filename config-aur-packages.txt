@@ -5,7 +5,6 @@ grpcurl-bin
 kind
 kubent-bin
 notion-app
-protonvpn-cli
 protonvpn-gui
 slack-desktop
 terraform-docs-bin
