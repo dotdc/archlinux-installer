@@ -5,6 +5,7 @@ cilium-cli-bin
 grpcurl-bin
 kind
 kubent-bin
+kubescape-bin
 notion-app
 protonvpn-gui
 slack-desktop
