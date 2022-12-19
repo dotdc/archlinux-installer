@@ -41,6 +41,8 @@ kubectl
 kubeseal
 kustomize
 libreoffice-fresh-fr
+minio
+minio-client
 mlocate
 networkmanager
 nfs-utils
