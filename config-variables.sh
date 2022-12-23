@@ -18,5 +18,5 @@ hostname="laptop"
 timezone="Europe/Paris"
 locale="en_US"
 username="david"
-favorite_apps="['urxvt.desktop', 'nautilus.desktop', 'brave-browser.desktop', 'firefox.desktop', 'vivaldi-stable.desktop', 'notion-app.desktop', 'slack.desktop', 'visual-studio-code.desktop', 'scummvm.desktop', 'torguard.desktop']"
-
+# Can be found in /usr/share/applications/
+favorite_apps="['org.gnome.Terminal.desktop', 'nautilus.desktop', 'brave-browser.desktop', 'vivaldi-stable.desktop', 'firefox.desktop', 'visual-studio-code.desktop', 'notion-app.desktop', 'spotify.desktop', 'slack.desktop', 'discord.desktop', 'scummvm.desktop']"
