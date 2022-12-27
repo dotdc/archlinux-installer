@@ -3,6 +3,7 @@ brave-bin
 chrome-gnome-shell
 cilium-cli-bin
 grpcurl-bin
+hubble-bin
 kind
 kubent-bin
 kubescape-bin
