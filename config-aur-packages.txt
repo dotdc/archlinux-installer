@@ -12,7 +12,6 @@ notion-app
 protonvpn-gui
 slack-desktop
 terraform-docs-bin
-textlint
 tfk8s
 tflint-bin
 tfsec
