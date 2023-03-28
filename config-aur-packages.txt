@@ -9,6 +9,7 @@ kind
 kubent-bin
 kubescape-bin
 notion-app
+oh-my-zsh-git
 protonvpn-gui
 slack-desktop
 terraform-docs-bin
@@ -16,3 +17,4 @@ tfk8s
 tflint-bin
 tfsec
 visual-studio-code-bin
+zsh-theme-powerlevel10k-git

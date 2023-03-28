@@ -42,6 +42,7 @@ kubectl
 kubeseal
 kustomize
 libreoffice-fresh-fr
+mimir
 minio
 minio-client
 mlocate
