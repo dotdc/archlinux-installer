@@ -87,19 +87,19 @@ vgcreate SYSTEM /dev/mapper/cryptlvm
 echo -e "[${B}INFO${W}] Create LVM Logical Volumes"
 lvcreate -L "${lv_swap_size}" SYSTEM -n swap
 lvcreate -L "${lv_root_size}" SYSTEM -n root
-lvcreate -l "${lv_home_size}" SYSTEM -n home
+[[ "${create_home_fs}" == "true" ]] && lvcreate -l "${lv_home_size}" SYSTEM -n home
 
 # Format LVs
 echo -e "[${B}INFO${W}] Format LVM Logical Volumes"
 mkswap /dev/SYSTEM/swap
 mkfs.ext4 /dev/SYSTEM/root
-mkfs.ext4 /dev/SYSTEM/home
+[[ "${create_home_fs}" == "true" ]] && mkfs.ext4 /dev/SYSTEM/home
 
 # Mount LVs
 echo -e "[${B}INFO${W}] Mount LVM Logical Volumes"
 mount /dev/SYSTEM/root /mnt
-mkdir /mnt/home
-mount /dev/SYSTEM/home /mnt/home
+[[ "${create_home_fs}" == "true" ]] && mkdir /mnt/home
+[[ "${create_home_fs}" == "true" ]] && mount /dev/SYSTEM/home /mnt/home
 
 # Mount EFI
 echo -e "[${B}INFO${W}] Mount EFI Partition"

@@ -27,13 +27,9 @@ This installer will:
 
 ⚠️ This installer will format your disk! I will not be responsible for any data loss or damage to your computer.
 
-## Configuration Files
+## Configuration File
 
-| File                         | Purpose |
-|------------------------------|---------|
-| `config-variables.sh`        | Main configuration file (locale, timezone, user, hostname...) |
-| `config-pacman-packages.txt` | List of packages to install |
-| `config-pacman-packages.txt` | List of AUR packages to build & install|
+`config-variables.sh` : Main configuration file (packages, locale, timezone, user, hostname...)
 
 ## Usage
 
