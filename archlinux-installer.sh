@@ -121,6 +121,7 @@ genfstab -U /mnt >> /mnt/etc/fstab
 # Copy postinstall files to /mnt chroot
 echo -e "[${B}INFO${W}] Copy installation material for post-install"
 cp -v archlinux-postinstall.sh /mnt/opt
+cp -v archlinux-postinstall-desktop.sh /mnt/opt
 cp -v config-variables.sh /mnt/opt
 
 echo -e "\nluks_partition=\"${luks_partition}\"" >> /mnt/opt/config-variables.sh

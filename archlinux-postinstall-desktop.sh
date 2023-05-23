@@ -27,14 +27,6 @@ echo -e "Section \"InputClass\"
     Option \"XkbLayout\" \"${keymap}\"
 EndSection" > /etc/X11/xorg.conf.d/00-keyboard.conf
 
-# Install dotfiles for user
-mkdir -p /home/${username}/Documents/workspace/repos/
-cd /home/${username}/Documents/workspace/repos/
-git clone https://github.com/dotdc/dotfiles
-cd dotfiles
-su ${username} -c "make all"
-chown -R ${username}: /home/${username}
-
 # Install all packages
 echo -e "[${B}INFO${W}] Install desktop ${Y}pacman${W} packages"
 pacman -Sy --color auto ${desktop_packages[@]}
