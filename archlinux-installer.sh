@@ -122,8 +122,6 @@ genfstab -U /mnt >> /mnt/etc/fstab
 echo -e "[${B}INFO${W}] Copy installation material for post-install"
 cp -v archlinux-postinstall.sh /mnt/opt
 cp -v config-variables.sh /mnt/opt
-cp -v config-pacman-packages.txt /mnt/opt
-cp -v config-aur-packages.txt /mnt/opt
 
 echo -e "\nluks_partition=\"${luks_partition}\"" >> /mnt/opt/config-variables.sh
 

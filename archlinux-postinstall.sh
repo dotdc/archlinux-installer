@@ -91,4 +91,7 @@ Exec = /usr/bin/bootctl update" > /etc/pacman.d/hooks/100-systemd-boot.hook
 if [[ "${install_mode}" == "desktop" ]] ; then
     echo -e "[${B}INFO${W}] Desktop specific post-install"
     bash ./archlinux-postinstall-desktop.sh
+else
+    echo -e "[${B}INFO${W}] Post-install complete!"
+    echo -e "[${B}INFO${W}] Type ${Y}CTRL+D${W} and ${Y}reboot${W} to reboot in Arch!"
 fi

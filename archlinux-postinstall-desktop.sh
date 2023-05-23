@@ -14,9 +14,9 @@ cd dotfiles
 su ${username} -c "make all"
 chown -R ${username}: /home/${username}
 
-# Reboot
-echo -e "[${B}INFO${W}] Post-install complete!"
-echo -e "[${B}INFO${W}] Type ${Y}CTRL+D${W} and ${Y}reboot${W} to reboot in Arch!"
+# Install all packages
+echo -e "[${B}INFO${W}] Install desktop ${Y}pacman${W} packages"
+pacman -Sy --color auto ${desktop_packages[@]}
 
 # Install yay
 echo -e "[${B}INFO${W}] Install ${Y}yay${W}"
@@ -28,7 +28,7 @@ sudo -u ${username} makepkg -si
 
 # Install AUR Packages
 echo -e "[${B}INFO${W}] Install ${Y}AUR${W} packages"
-sudo -u ${username} yay -Sy --color auto - < /opt/config-aur-packages.txt
+sudo -u ${username} yay -Sy --color auto ${aur_packages[@]}
 
 # Start services
 echo -e "[${B}INFO${W}] Enable systemctl services"
