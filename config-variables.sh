@@ -67,7 +67,6 @@ declare -a desktop_packages=(
     "brasero"
     "btrfs-progs"
     "chromium"
-    "codespell"
     "cups"
     "cups-pdf"
     "discord"
