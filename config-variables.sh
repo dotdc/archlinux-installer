@@ -143,6 +143,7 @@ declare -a aur_packages=(
     "brave-bin"
     "chrome-gnome-shell"
     "cilium-cli-bin"
+    "cura-bin"
     "grpcurl-bin"
     "hubble-bin"
     "kind"
