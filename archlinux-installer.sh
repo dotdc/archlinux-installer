@@ -87,19 +87,19 @@ vgcreate SYSTEM /dev/mapper/cryptlvm
 echo -e "[${B}INFO${W}] Create LVM Logical Volumes"
 lvcreate -L "${lv_swap_size}" SYSTEM -n swap
 lvcreate -L "${lv_root_size}" SYSTEM -n root
-lvcreate -l "${lv_home_size}" SYSTEM -n home
+[[ "${create_home_fs}" == "true" ]] && lvcreate -l "${lv_home_size}" SYSTEM -n home
 
 # Format LVs
 echo -e "[${B}INFO${W}] Format LVM Logical Volumes"
 mkswap /dev/SYSTEM/swap
 mkfs.ext4 /dev/SYSTEM/root
-mkfs.ext4 /dev/SYSTEM/home
+[[ "${create_home_fs}" == "true" ]] && mkfs.ext4 /dev/SYSTEM/home
 
 # Mount LVs
 echo -e "[${B}INFO${W}] Mount LVM Logical Volumes"
 mount /dev/SYSTEM/root /mnt
-mkdir /mnt/home
-mount /dev/SYSTEM/home /mnt/home
+[[ "${create_home_fs}" == "true" ]] && mkdir /mnt/home
+[[ "${create_home_fs}" == "true" ]] && mount /dev/SYSTEM/home /mnt/home
 
 # Mount EFI
 echo -e "[${B}INFO${W}] Mount EFI Partition"
@@ -121,9 +121,8 @@ genfstab -U /mnt >> /mnt/etc/fstab
 # Copy postinstall files to /mnt chroot
 echo -e "[${B}INFO${W}] Copy installation material for post-install"
 cp -v archlinux-postinstall.sh /mnt/opt
+cp -v archlinux-postinstall-desktop.sh /mnt/opt
 cp -v config-variables.sh /mnt/opt
-cp -v config-pacman-packages.txt /mnt/opt
-cp -v config-aur-packages.txt /mnt/opt
 
 echo -e "\nluks_partition=\"${luks_partition}\"" >> /mnt/opt/config-variables.sh
 
