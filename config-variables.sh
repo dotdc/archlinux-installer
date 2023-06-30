@@ -61,6 +61,7 @@ declare -a desktop_packages=(
     "alsa-utils"
     "android-tools"
     "argocd"
+    "aws-cli-v2"
     "bind"
     "bluez"
     "bluez-utils"
@@ -138,7 +139,6 @@ declare -a desktop_packages=(
 # AUR packages
 declare -a aur_packages=(
     "1password"
-    "aws-cli-v2-bin"
     "brave-bin"
     "chrome-gnome-shell"
     "cilium-cli-bin"
