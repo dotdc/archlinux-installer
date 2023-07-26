@@ -2,7 +2,7 @@
 
 ## Description
 
-This is custom installer script for Arch Linux.
+This is a custom installer script for Arch Linux.
 
 ![screenshot](https://raw.githubusercontent.com/dotdc/media/main/archlinux-installer/archlinux-installer-screenshot.png "Archlinux-installer screenshot")
 
@@ -27,9 +27,9 @@ This installer will:
 
 ⚠️ This installer will format your disk! I will not be responsible for any data loss or damage to your computer.
 
-## Configuration File
+## Configuration
 
-`config-variables.sh` : Main configuration file (packages, locale, timezone, user, hostname...)
+`config-variables.sh` : Configuration file (packages, locale, timezone, user, hostname...)
 
 ## Usage
 
