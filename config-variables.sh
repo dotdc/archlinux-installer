@@ -146,6 +146,7 @@ declare -a aur_packages=(
     "cilium-cli-bin"
     "cura-bin"
     "grpcurl-bin"
+    "helm-docs"
     "hubble-bin"
     "kind"
     "kubent-bin"
