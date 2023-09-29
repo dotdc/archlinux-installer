@@ -74,6 +74,7 @@ declare -a desktop_packages=(
     "docker"
     "dosbox"
     "eksctl"
+    "elfutils"
     "evince"
     "exfat-utils"
     "filezilla"
@@ -94,6 +95,7 @@ declare -a desktop_packages=(
     "kubectl"
     "kubeseal"
     "kustomize"
+    "libdwarf"
     "libreoffice-fresh-fr"
     "mimir"
     "minio"
@@ -134,6 +136,7 @@ declare -a desktop_packages=(
     "xorg"
     "xorg-server"
     "yamllint"
+    "zig"
     "zip"
     "zsh"
 )
