@@ -152,6 +152,7 @@ declare -a aur_packages=(
     "helm-docs"
     "hubble-bin"
     "kind"
+    "kube-bench-bin"
     "kubent-bin"
     "kubescape-bin"
     "notion-app"
