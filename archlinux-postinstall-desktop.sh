@@ -29,7 +29,7 @@ EndSection" > /etc/X11/xorg.conf.d/00-keyboard.conf
 
 # Install all packages
 echo -e "[${B}INFO${W}] Install desktop ${Y}pacman${W} packages"
-pacman -Sy --color auto ${desktop_packages[@]}
+pacman -Sy --color auto "${desktop_packages[@]}"
 
 # Install yay
 echo -e "[${B}INFO${W}] Install ${Y}yay${W}"
@@ -41,7 +41,7 @@ sudo -u ${username} makepkg -si
 
 # Install AUR Packages
 echo -e "[${B}INFO${W}] Install ${Y}AUR${W} packages"
-sudo -u ${username} yay -Sy --color auto ${aur_packages[@]}
+sudo -u ${username} yay -Sy --color auto "${aur_packages[@]}"
 
 # Start services
 echo -e "[${B}INFO${W}] Enable systemctl services"

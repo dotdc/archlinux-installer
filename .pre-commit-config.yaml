@@ -1,7 +1,9 @@
+# Doc: https://pre-commit.com
+
 repos:
-  ## Default pre-commit hooks
+  # Default pre-commit hooks
   - repo: https://github.com/pre-commit/pre-commit-hooks
-    rev: v4.5.0
+    rev: v4.6.0
     hooks:
     - id: check-yaml
     - id: check-added-large-files
@@ -9,24 +11,24 @@ repos:
     - id: mixed-line-ending
     - id: trailing-whitespace
 
-  ## Typos
+  # Typos
   - repo: https://github.com/crate-ci/typos
-    rev: v1.16.23
+    rev: v1.20.8
     hooks:
       - id: typos
 
   # Markdown linter
   - repo: https://github.com/igorshubovych/markdownlint-cli
-    rev: v0.37.0
+    rev: v0.39.0
     hooks:
     - id: markdownlint
       args:
       - "--disable=MD013"
 
-  # # Shellcheck linter
-  # - repo: https://github.com/shellcheck-py/shellcheck-py
-  #   rev: v0.8.0.4
-  #   hooks:
-  #   - id: shellcheck
-  #     args:
-  #     - "--exclude=SC2034"
+  # Shellcheck linter
+  - repo: https://github.com/shellcheck-py/shellcheck-py
+    rev: v0.10.0.1
+    hooks:
+    - id: shellcheck
+      args:
+      - "--exclude=SC2034"

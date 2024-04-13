@@ -25,7 +25,7 @@ pacman -Sy --color auto archlinux-keyring
 
 # Install all packages
 echo -e "[${B}INFO${W}] Install ${Y}pacman${W} packages"
-pacman -Sy --color auto ${default_packages[@]}
+pacman -Sy --color auto "${default_packages[@]}"
 
 # Configuration
 echo -e "[${B}INFO${W}] Configure system localization"
@@ -63,7 +63,8 @@ bootctl install
 echo "default arch
 timeout 1" > /boot/loader/loader.conf
 
-uuid="$(blkid -s UUID -o value ${luks_partition})"
+# shellcheck disable=SC2154
+uuid=$(blkid -s UUID -o value "${luks_partition}")
 
 echo -e "title Arch Linux
 linux /vmlinuz-linux

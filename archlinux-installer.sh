@@ -104,7 +104,7 @@ mount /dev/SYSTEM/root /mnt
 # Mount EFI
 echo -e "[${B}INFO${W}] Mount EFI Partition"
 mkdir /mnt/boot
-mkfs.fat -F 32 ${efi_partition}
+mkfs.fat -F 32 "${efi_partition}"
 mount "${efi_partition}" /mnt/boot
 
 # Mount swap
