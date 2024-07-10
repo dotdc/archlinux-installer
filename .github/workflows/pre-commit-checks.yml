@@ -4,9 +4,11 @@ name: pre-commit-checks
 
 on:
   push:
-    branches: [ master ]
+    branches:
+      - master
   pull_request:
-    branches: [ master ]
+    branches:
+      - master
 
 jobs:
   pre-commit-checks:
@@ -18,7 +20,7 @@ jobs:
 
       # Doc: https://github.com/marketplace/actions/setup-python
       - name: Setup Python
-        uses: actions/setup-python@v4
+        uses: actions/setup-python@v5
 
       # Install pre-commit
       - name: Install pre-commit
