@@ -159,6 +159,7 @@ declare -a aur_packages=(
     "kube-hunter-bin"
     "kubent-bin"
     "kubescape-bin"
+    "lighthouse"
     "notion-app"
     "oh-my-zsh-git"
     "slack-desktop"
