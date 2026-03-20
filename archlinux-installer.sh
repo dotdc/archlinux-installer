@@ -80,7 +80,7 @@ if [[ "${luks}" == "true" ]] ; then
   # LUKS configuration
   echo -e "[${B}INFO${W}] Create luks partition on ${Y}${os_partition}${W}"
   cryptsetup luksFormat "${os_partition}"
-  echo -e "[${B}INFO${W}] Mount the luks partition as ${Y}"${lvm_name}"${W}"
+  echo -e "[${B}INFO${W}] Mount the luks partition as ${Y}${lvm_name}${W}"
   cryptsetup open "${os_partition}" "${lvm_name}"
 fi
 
