@@ -1,10 +1,8 @@
 #!/bin/bash
 ################################################################################
-#
 # Author  : David Calvert
 # Purpose : Arch Linux custom installer
 # GitHub  : https://github.com/dotdc/archlinux-installer
-#
 ################################################################################
 
 set -e
@@ -16,7 +14,7 @@ set -e
 . config-variables.sh
 
 ################################################################################
-# Preparation
+# Installer
 ################################################################################
 
 # Arch logo from : https://wiki.archlinux.org/title/ASCII_art
@@ -41,18 +39,25 @@ echo -e "${B}
 loadkeys fr
 timedatectl set-ntp true
 
+################################################################################
 # Disk partition
-echo -e "[${B}INFO${W}] Select destination disk for Arch Linux"
-echo "Disk(s) available:"
-parted -l | awk '/Disk \//{ gsub(":","") ; print "- \033[93m"$2"\033[0m",$3}' | column -t
-read -r -p "Please enter destination disk: " system_disk
+################################################################################
 
-echo -e "Disk ${Y}${system_disk}${W} will be ${R}ERASED${W} !"
-read -r -p "Are you sure you want to proceed? (y/n)" system_disk_format
+if [[ "${install_mode}" == "auto" ]] ; then
+  system_disk=$(sudo parted -l | awk '/Disk \//{ gsub(":","") ; print $2}')
+else
+  echo -e "[${B}INFO${W}] Select destination disk for Arch Linux"
+  echo "Disk(s) available:"
+  parted -l | awk '/Disk \//{ gsub(":","") ; print "- \033[93m"$2"\033[0m",$3}' | column -t
+  read -r -p "Please enter destination disk: " system_disk
 
-if [[ "${system_disk_format}" != "y" ]] ; then
-    echo "Installation aborted!"
-    exit 0
+  echo -e "Disk ${Y}${system_disk}${W} will be ${R}ERASED${W} !"
+  read -r -p "Are you sure you want to proceed? (y/n)" system_disk_format
+
+  if [[ "${system_disk_format}" != "y" ]] ; then
+      echo "Installation aborted!"
+      exit 0
+  fi
 fi
 
 # CREATE PARTED GUID + PARTITIONS
@@ -60,28 +65,34 @@ echo -e "[${B}INFO${W}] Format ${Y}${system_disk}${W} and create partitions"
 parted "${system_disk}" mklabel gpt
 parted "${system_disk}" mkpart "EFI" fat32 1MiB 301MiB
 parted "${system_disk}" set 1 esp on
-parted "${system_disk}" mkpart "LUKS-SYSTEM" ext4 301MiB 100%
+parted "${system_disk}" mkpart "${part_name}" ext4 301MiB 100%
 
 # Guess partition names
 if [[ "${system_disk}" =~ "/dev/sd" ]] ; then
   efi_partition="${system_disk}1"
-  luks_partition="${system_disk}2"
+  os_partition="${system_disk}2"
 else
   efi_partition="${system_disk}p1"
-  luks_partition="${system_disk}p2"
+  os_partition="${system_disk}p2"
 fi
 
-# LUKS configuration
-echo -e "[${B}INFO${W}] Create luks partition on ${Y}${luks_partition}${W}"
-cryptsetup luksFormat "${luks_partition}"
-echo -e "[${B}INFO${W}] Mount the luks partition as ${Y}cryptlvm${W}"
-cryptsetup open "${luks_partition}" cryptlvm
+if [[ "${luks}" == "true" ]] ; then
+  # LUKS configuration
+  echo -e "[${B}INFO${W}] Create luks partition on ${Y}${os_partition}${W}"
+  cryptsetup luksFormat "${os_partition}"
+  echo -e "[${B}INFO${W}] Mount the luks partition as ${Y}"${lvm_name}"${W}"
+  cryptsetup open "${os_partition}" "${lvm_name}"
+fi
 
 # Create PV/VG
-echo -e "[${B}INFO${W}] Create LVM Physical Volume"
-pvcreate /dev/mapper/cryptlvm
-echo -e "[${B}INFO${W}] Create LVM Volume Group"
-vgcreate SYSTEM /dev/mapper/cryptlvm
+echo -e "[${B}INFO${W}] Create LVM Physical Volume and Volume Group"
+if [[ "${luks}" == "true" ]] ; then
+  pvcreate "/dev/mapper/${lvm_name}"
+  vgcreate SYSTEM "/dev/mapper/${lvm_name}"
+else
+  pvcreate "${os_partition}"
+  vgcreate SYSTEM "${os_partition}"
+fi
 
 # Create LVs
 echo -e "[${B}INFO${W}] Create LVM Logical Volumes"
@@ -110,7 +121,10 @@ mount "${efi_partition}" /mnt/boot
 # Mount swap
 swapon /dev/SYSTEM/swap
 
-# Install Arch
+################################################################################
+# Archlinux Installation
+################################################################################
+
 echo -e "[${B}INFO${W}] Install Arch Linux"
 pacstrap /mnt --color auto base base-devel linux linux-firmware intel-ucode efibootmgr lvm2
 
@@ -124,7 +138,17 @@ cp -v archlinux-postinstall.sh /mnt/opt
 cp -v archlinux-postinstall-desktop.sh /mnt/opt
 cp -v config-variables.sh /mnt/opt
 
-echo -e "\nluks_partition=\"${luks_partition}\"" >> /mnt/opt/config-variables.sh
+echo -e "\nos_partition=\"${os_partition}\"" >> /mnt/opt/config-variables.sh
 
 echo -e "[${B}INFO${W}] Installation complete!"
-echo -e "[${B}INFO${W}] Please run ${Y}arch-chroot /mnt${W}, ${Y}cd /opt${W} and ${Y}./archlinux-postinstall.sh${W} to continue"
+echo -e "[${B}INFO${W}] Running commands from archlinux-postinstall.sh"
+
+echo -e "[${B}INFO${W}] Please run ${Y}cd /opt${W} and ${Y}./archlinux-postinstall.sh${W} to continue"
+
+# Run commands in chroot environment
+chroot /mnt /bin/bash <<EOF
+cd /opt
+./archlinux-postinstall.sh
+EOF
+
+reboot

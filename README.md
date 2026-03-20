@@ -12,8 +12,8 @@ This installer will:
 
 - Format your disk and create 2 partitions:
   - A partition for the `EFI` (mounted on `/boot`)
-  - A `LUKS` encrypted partition for the system
-- Configure LVM on LUKS with 3 Logical Volumes (LVs):
+  - A partition for the system (optionally `LUKS` encrypted)
+- Configure LVM with 3 Logical Volumes (LVs):
   - `root` (`/`)
   - `home` (`/home`)
   - `swap`
@@ -22,14 +22,13 @@ This installer will:
 - Change the root password
 - Install packages, `yay` and some `AUR` packages
 - Install the `systemd-boot` bootloader (no support for bios)
-- Set custom `Gnome` favorites apps
-- Install my [dotfiles](https://github.com/dotdc/dotfiles)
+- Optionally run the desktop post-installer (Gnome, dotfiles, AUR packages...)
 
 ⚠️ This installer will format your disk! I will not be responsible for any data loss or damage to your computer.
 
 ## Configuration
 
-`config-variables.sh` : Configuration file (packages, locale, timezone, user, hostname...)
+`config-variables.sh` : Configuration file (install type, install mode, LUKS, packages, locale, timezone, user, hostname...)
 
 ## Usage
 
@@ -43,7 +42,8 @@ cd archlinux-installer
 ./archlinux-installer.sh
 ```
 
-Then follow the steps!
+In `auto` mode, the installer will run without prompts and reboot when done.
+In `manual` mode, follow the steps!
 
 ## Contributing
 

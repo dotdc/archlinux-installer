@@ -1,7 +1,21 @@
 #!/bin/bash
 
 # server or desktop
-install_mode="server"
+install_type="server"
+
+# manual or auto
+install_mode="auto"
+
+# luks or no-luks
+luks="false"
+
+if [[ "${luks}" == "true" ]] ; then
+    part_name="LUKS-SYSTEM"
+    lvm_name="cryptlvm"
+else
+    part_name="SYSTEM"
+    lvm_name="lvm"
+fi
 
 ################################################################################
 # Default variables
@@ -18,7 +32,7 @@ Y='\e[93m' # Yellow
 create_home_fs="true"
 
 lv_swap_size="16G"
-lv_root_size="128G"
+lv_root_size="150G"
 lv_home_size="100%FREE"
 
 # Configuration
@@ -27,6 +41,8 @@ hostname="laptop"
 timezone="Europe/Paris"
 locale="en_US"
 username="david"
+username_default_password="d0tDC"
+root_default_password="dr00tDC"
 
 # Default packages
 declare -a default_packages=(
@@ -73,7 +89,6 @@ declare -a desktop_packages=(
     "discord"
     "docker"
     "dosbox"
-    "eksctl"
     "elfutils"
     "evince"
     "exfat-utils"
@@ -93,13 +108,9 @@ declare -a desktop_packages=(
     "k9s"
     "kubeadm"
     "kubectl"
-    "kubeseal"
-    "kustomize"
     "libdwarf"
     "libreoffice-fresh-fr"
     "mimir"
-    "minio"
-    "minio-client"
     "networkmanager"
     "nfs-utils"
     "obs-studio"
@@ -122,14 +133,12 @@ declare -a desktop_packages=(
     "usbutils"
     "vagrant"
     "valgrind"
-    "vault"
     "virtualbox"
     "virtualbox-guest-utils"
     "virtualbox-host-modules-arch"
     "vivaldi"
     "vivaldi-ffmpeg-codecs"
     "vlc"
-    "wasmtime"
     "webp-pixbuf-loader"
     "wireguard-tools"
     "wireless_tools"
@@ -146,27 +155,20 @@ declare -a desktop_packages=(
 # AUR packages
 declare -a aur_packages=(
     "1password"
-    "battop"
     "brave-bin"
     "chrome-gnome-shell"
     "cilium-cli-bin"
+    "claude-desktop-appimage"
     "cura-bin"
     "grpcurl-bin"
     "helm-docs"
     "hubble-bin"
     "kind"
-    "kube-bench-bin"
-    "kube-hunter-bin"
-    "kubent-bin"
-    "kubescape-bin"
-    "lighthouse"
     "notion-app"
-    "oh-my-zsh-git"
     "slack-desktop"
     "terraform-docs-bin"
     "tfk8s"
     "tflint-bin"
-    "tfsec"
     "visual-studio-code-bin"
-    "zsh-theme-powerlevel10k-git"
+    "zinit"
 )

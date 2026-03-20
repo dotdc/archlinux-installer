@@ -1,10 +1,8 @@
 #!/bin/bash
 ################################################################################
-#
 # Author  : David Calvert
 # Purpose : Arch Linux custom desktop post-installer
 # GitHub  : https://github.com/dotdc/archlinux-installer
-#
 ################################################################################
 
 set -e
